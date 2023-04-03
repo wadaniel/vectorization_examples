@@ -1,8 +1,9 @@
 CXX=g++
-CXXFLAGS=-Wall
+CXXFLAGS=-Wall -std=c++11
+
+.PHONY: clean
 
 all: example1 example2 example3
-
 
 example1:
 	${CXX} example1.cpp -o example1_base.out ${CXXFLAGS}
@@ -22,8 +23,6 @@ example3:
 	${CXX} example3.cpp -o example3_unsafe.out -O3 -funsafe-math-optimizations ${CXXFLAGS}
 	${CXX} example3_avx.cpp -o example3_avx.out -O3 -mavx2 -mfma ${CXXFLAGS}
 
-
-.PHONY: all
 
 clean:
 	rm *.out
